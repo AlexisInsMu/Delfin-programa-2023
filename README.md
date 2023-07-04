@@ -12,17 +12,19 @@ Por otro lado, el procesamiento de la imagen que realiza después de la captura 
 La ecuación matemática que modela el comportamiento del ruido impulsivo en una imagen es la siguiente:
 
 
-$$
-
 \begin{equation}
-  P_{sp} ( z )  = \Biggl\{ \hspace{3mm}
-\begin{align*} 
-  P_p \hspace{1mm} , \hspace{3mm} z=p \\ 
-  P_s \hspace{1mm} , \hspace{3mm} z=s
-\end{align*}
+
+P_{sp} ( z )  = \Biggl\{ 
+$\hspace{3mm}$
+
+    \begin{align*}
+
+  P_p $\hspace{1mm}$ , $\hspace{3mm}$ z=p \\ 
+  P_s $\hspace{1mm}$ , $\hspace{3mm}$ z=s
+    \end{align*}
+    
 \end{equation}
 
-$$
 
 
 
@@ -39,14 +41,10 @@ En la mayoría de la literatura cuando se trata de agregar este tipo de ruido a 
 
 Como último, la ecuación que modela el ruido gaussiano es la misma de la distribución del mismo nombre, pero en este caso, como ya se mencionó, mu o la media (***μ***) lo evaluamos en 0 y variamos la deviación estándar (***σ***).
 
-$$
 
   \begin{equation}
     P_G = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}  
   \end{equation}
-
-$$
-
 
 
 ## Biografía
