@@ -1,5 +1,10 @@
   # Programa-Delfin-2023
  # Descripción y caracterización para el procesamiento de imágenes ruidosas 
+ ## Autor: Murillo Barrientos Alexis Adrian
+ ## Asesores:
+ ## Martínez Felipe Miguel de Jesús
+ ## Dr. Montiel Pérez Jesús Yaljá
+ 
 ## Capítulo 1: Estado del arte
 ### ***1.1 (Algo va aquí)***
 ### ***1.2 ¿Qué es ruido impulsivo "Sal y pimienta" en imágenes?***
@@ -63,7 +68,6 @@ $$
 $f(x)$ es una función periódica para $x\in \left[−\pi, \pi\right]$ de la cual se desea encontrar una representación. $a_{0}$ es una constante,
 
 $$
-
 a_0 = \displaystyle{\frac{1}{L} \int \limits_{-L}^{L} f(x) dx },
 $$
 
@@ -75,7 +79,6 @@ $$
 
 $$
 b_n = \displaystyle{\frac{1}{L} \int \limits_{-L}^{L} f(x) {\sin(\frac{n\pi x}{L}) }dx }.
-
 $$
 
 Esta misma nace de su versión compleja la cual es la serie compleja de Fourier, que es una herramienta matemática muy importante para tratar problemas de funciones periódicas al descomponer una función $f(t)$ como una combinación lineal de funciones armónicas y presenta sus coeficientes como una función discreta que depende de las frecuencias armónicas de la serie, pero no todas las funciones son periódicas por lo que es necesario desarrollar un procedimiento [8].
@@ -113,13 +116,28 @@ $\bullet$ Timpo $n=t$
 
 La transformada tiene muchas aplicaciones como en el análisis de señales en el dominio de la frecuencia de un sistema lineal y las ecuaciones diferenciales lineales no son la excepción dado que la respuesta también puede estudiarse en el dominio de la frecuencia, donde es posible identificar la relación de la señal de entrada con la señal de salida mediante un producto de funciones. [8]
  
-#### ***1.4.3 ¿Qué es la tranformada de Fourier?***
+#### ***1.4.3 ¿Qué es el filtro de Fourier?***
 
-Ahora bien, siendo más específicos en la aplicación de la transformada de Fourier, tenemos al filtrado de señales, donde como su nombre lo indica se aplica la transformada de Fourier para obtener las frecuencias más importantes de la señal descartando así ruido en general que se encuentra fuera del espectro de la señal, y tomando la idea de que al final una imagen se puede traducir o pasar a una señal de varios canales, nos lleva a la conclusión que una imagen puede ser filtrado por Fourier para sacar el ruido que pueda tener esta imagen.
+Ahora bien, siendo más específicos en la aplicación de la transformada de Fourier, tenemos al filtrado de señales, donde como su nombre lo indica se aplica la transformada de Fourier para obtener las frecuencias más importantes de la señal descartando así ruido en general que se encuentra en el exterior del espectro de la señal, y tomando la idea de que al final una imagen se puede traducir o pasar a una señal de varios canales, nos lleva a la conclusión que una imagen puede ser filtrado por Fourier para sacar el ruido que pueda tener esta imagen.
 
 
-Esta misma conclusión lleva a la existencia del filtro de Fourier, que obtiene los datos más representativos de la imagen y los aísla de tal manera que definiendo un círculo de corte que solo contenga lo más importante de la imagen, podemos eliminar hasta determinado punto el ruido en una imagen, pero ahí depende mucho del tipo de imagen en referencia a su contraste y detalle, así mismo su nivel de ruido, lo cual llevara a tener que variar el radio de corte para obtener mejores imágenes filtradas.
+Esta misma conclusión lleva a la existencia del filtro de Fourier, que obtiene los datos más representativos de la imagen y los aísla de tal manera que define un círculo de corte que solo contenga lo más importante de la imagen o las frecuancia cero, podemos eliminar hasta determinado punto el ruido en una imagen, pero ahí depende mucho del tipo de imagen en referencia a su contraste y detalle, así mismo su nivel de ruido, lo cual llevara a tener que variar el radio de corte para obtener mejores imágenes filtradas.
 
+
+Profundizando en el filtro de Fourier, este funciona mas a detalle por medio aplicar la transformada de Fourier en dos dimensiones, la tener la imagen en el dominio de la frecuencia, luego se aplica un centrado de los componentes de las frecuncia zero, además se aplica a cada elemento ***x*** de la matriz la siguiente ecuación $ 20*log(|x|)  $ para obtener la magnitud del espectro, posteriormente, se realiza la aplicación de filtros de frecuncias, como el filtro pasa bajos, que suaviza frecuncias mas altas de determinado umbral y deja pasar las frecuncias por debajo de la frecuncia de umbral, en caso contrario esta el filtro pasa alto que solo deja pasar frecuncias mas altas que determinado umbral y suaviza en resto, por ultimo tenemos el filtro pasa bandas que deja pasar un conjunto de frecuencias que estan entre determinado umbral, a continuación, con los filtros ya aplicados, realizamos la Transformada inversa de Fourier para así Esta misma conclusión lleva a la existencia del filtro de Fourier, que obtiene los datos más representativos de la imagen y los aísla de tal manera que define un círculo de corte que solo contenga lo más importante de la imagen o las frecuancia cero, podemos eliminar hasta determinado punto el ruido en una imagen, pero ahí depende mucho del tipo de imagen en referencia a su contraste y detalle, así mismo su nivel de ruido, lo cual llevara a tener que variar el radio de corte para obtener mejores imágenes filtradas.
+
+$\bullet$  Transformada de Fourier en dos dimensiones en su forma discreta
+
+$$
+F[m,n] = \sum_{x=0}^{M-1}\sum_{y=0}^{N-1} f[x,y]e^{-2j\pi(\frac{x}{M}m+\frac{y}{N}n)}
+$$
+
+
+$\bullet$  Transformada inversa de Fourier en dos dimensiones en su forma discreta
+
+$$
+F[x,y] = \frac{1}{MN} \sum_{x=0}^{M-1}\sum_{y=0}^{N-1} f[m,n]e^{2j\pi(\frac{x}{M}m+\frac{y}{N}n)}
+$$
 
 
 
